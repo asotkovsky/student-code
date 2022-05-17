@@ -372,9 +372,9 @@ public class Exercises {
         cookies will not be placed in a jar?
         */
 
-		int cookiesMade = 47;
+		int totalCookies = 47;
 		int cookiesPerJar = 6;
-		int remainingCookies = cookiesMade % cookiesPerJar;
+		int remainingCookies = totalCookies % cookiesPerJar;
 
 
         /* Exercise 41
@@ -383,6 +383,9 @@ public class Exercises {
         how many will be left with Marian?
         */
 
+		int totalCroissants = 59;
+		int numberOfNeighbors = 8;
+		int remainingCroissants = totalCroissants % numberOfNeighbors;
 
         /* Exercise 42
         42. Marian also baked oatmeal cookies for her classmates. If she can
@@ -390,6 +393,9 @@ public class Exercises {
         prepare 276 oatmeal cookies at a time?
         */
 
+		int cookiesPerTray = 12;
+		int cookiesNeeded = 276;
+		int traysNeeded = cookiesNeeded / cookiesPerTray;
 
         /* Exercise 43
         43. Marian’s friends were coming over that afternoon so she made 480
@@ -397,6 +403,9 @@ public class Exercises {
         servings of bite-sized pretzels was Marian able to prepare?
         */
 
+		int totalPretzels = 480;
+		int pretzelsPerServing = 12;
+		int totalServings = totalPretzels / pretzelsPerServing;
 
         /* Exercise 44
         44. Lastly, she baked 53 lemon cupcakes for the children living in the city
@@ -404,6 +413,10 @@ public class Exercises {
         boxes with 3 lemon cupcakes each were given away?
         */
 
+		int totalLemonCupcakes = 53;
+		int lemonCupcakesLeftAtHome = 2;
+		int lemonCupcakesPerBox = 3;
+		int boxesOfLemonCupcakesGivenAway = (totalLemonCupcakes - lemonCupcakesLeftAtHome) / lemonCupcakesPerBox;
 
         /* Exercise 45
         45. Susie's mom prepared 74 carrot sticks for breakfast. If the carrots
@@ -411,6 +424,9 @@ public class Exercises {
         uneaten?
         */
 
+		int totalCarrotSticks = 74;
+		int totalPeople = 12;
+		int remainingCarrots = totalCarrotSticks % totalPeople;
 
         /* Exercise 46
         46. Susie and her sister gathered all 98 of their teddy bears and placed
@@ -418,6 +434,9 @@ public class Exercises {
         maximum of 7 teddy bears, how many shelves will be filled?
         */
 
+		int totalTeddyBears = 98;
+		int teddyBearsPerShelf = 7;
+		int numberOfShelvesFilledWithTeddyBears = totalTeddyBears / teddyBearsPerShelf;
 
         /* Exercise 47
         47. Susie’s mother collected all family pictures and wanted to place all of
@@ -425,6 +444,9 @@ public class Exercises {
         albums will she need if there are 480 pictures?
         */
 
+		int totalPictures = 480;
+		int picturesPerAlbum = 20;
+		int albumsNeeded = totalPictures / picturesPerAlbum;
 
         /* Exercise 48
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -433,6 +455,10 @@ public class Exercises {
         the unfilled box?
         */
 
+		int totalTradingCards = 94;
+		int tradingCardsPerBox = 8;
+		int numberOfFullTradingCardBoxes = totalTradingCards / tradingCardsPerBox;
+		int numberOfTradingCardsInUnfilledBox = totalTradingCards % tradingCardsPerBox;
 
         /* Exercise 49
         49. Susie’s father repaired the bookshelves in the reading room. If he has
@@ -440,11 +466,18 @@ public class Exercises {
         how many books will each shelf contain?
         */
 
+		int totalBooks = 210;
+		int totalShelves = 10;
+		int booksPerShelf = totalBooks / totalShelves;
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
+
+		double totalCroissantsChristina = 17.0;
+		double totalGuests = 7.0;
+		double croissantsPerGuest = totalCroissantsChristina / totalGuests;
 
 
 	    /* Exercise 51
@@ -453,6 +486,11 @@ public class Exercises {
 	    Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the combined hourly rate of the painters.
 	    */
 
+		double squareFootPaintedPerHourBill = (12 * 14) / 2.15;
+		double squareFootPaintedPerHourJill = (12 * 14) / 1.90;
+		double squareFootNeedsPainted = (12 * 14) * 5;
+		double squareFootPaintedPerHourBillAndJill = squareFootPaintedPerHourJill + squareFootPaintedPerHourBill;
+		double timeNeededToPaint = squareFootNeedsPainted / squareFootPaintedPerHourBillAndJill;
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
@@ -462,12 +500,19 @@ public class Exercises {
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
 
+		String firstName = "Grace";
+		String lastName = "Hopper";
+		char middleInitial = 'B';
+		String fullName = lastName + ", " + firstName + " " + middleInitial + ".";
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
 
+		double distanceBetweenNewYorkAndChicagoInMiles = 800.00;
+		double distanceTraveledInMiles = 537.00;
+		int percentageOfTripTraveled = (int)((double)(distanceTraveledInMiles / distanceBetweenNewYorkAndChicagoInMiles) * 100);
 	}
 
 }
