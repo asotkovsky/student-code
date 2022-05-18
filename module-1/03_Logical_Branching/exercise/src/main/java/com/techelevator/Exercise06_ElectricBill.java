@@ -27,14 +27,9 @@ public class Exercise06_ElectricBill {
         if (unitsUsed <= EXCESS_UNITS_LIMIT){
             return unitsUsed * BASE_RATE;
         }
-        return unitsUsed * EXCESS_RATE;
+        return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
     }
 
-     if (weightPounds < MAX_WEIGHT_POUNDS){
-        return weightPounds * UP_TO_40_LB_RATE;
-    }
-        return (MAX_WEIGHT_POUNDS * UP_TO_40_LB_RATE) + ((weightPounds - MAX_WEIGHT_POUNDS) * OVER_40_LB_RATE);
-}
 
     /*
     Tech Electric realized some of their customers have renewable energy like solar panels.
@@ -49,16 +44,17 @@ public class Exercise06_ElectricBill {
      */
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
         if (hasRenewableEnergy == true){
-
             if (unitsUsed <= EXCESS_UNITS_LIMIT){
-                return unitsUsed * BASE_RATE;
+                return (unitsUsed * BASE_RATE) * DISCOUNT_FACTOR;
             }
-            return unitsUsed * EXCESS_RATE;
+            return ((EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE)) * DISCOUNT_FACTOR;
+        }
+        if (unitsUsed <= EXCESS_UNITS_LIMIT){
+            return unitsUsed * BASE_RATE;
+        }
+        return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
         }
 
-
-        }
-    }
 
     /*
     Customers with renewable energy can put electricity back into the grid. Each customer's net usage (units used - units returned)
@@ -81,6 +77,19 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
-        return 0;
+            if (unitsUsed < unitsReturned) {
+                return (unitsUsed - unitsReturned) * BASE_RATE;
+            }
+            else if (unitsReturned > 0){
+                if ((unitsUsed - unitsReturned) <= EXCESS_UNITS_LIMIT){
+                    return ((unitsUsed - unitsReturned) * BASE_RATE) * DISCOUNT_FACTOR;
+                }
+                return ((EXCESS_UNITS_LIMIT * BASE_RATE) + (((unitsUsed - unitsReturned) - EXCESS_UNITS_LIMIT) * EXCESS_RATE)) * DISCOUNT_FACTOR;
+            }
+            else if (unitsUsed <= EXCESS_UNITS_LIMIT){
+                return unitsUsed * BASE_RATE;
+            }
+            return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
+        }
     }
-}
+
