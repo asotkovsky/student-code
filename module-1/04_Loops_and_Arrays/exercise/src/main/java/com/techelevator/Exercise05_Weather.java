@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.awt.*;
+
 public class Exercise05_Weather {
 
     private final static int FREEZING_TEMPERATURE = 32;
@@ -25,7 +27,12 @@ public class Exercise05_Weather {
 	belowFreezing([]) → 0
     */
 	public int belowFreezing(int[] dailyHighs) {
-		return 0;
+        int daysBelowFreezing = 0;
+		for (int i = 0; i < dailyHighs.length; i++)
+            if (dailyHighs[i] <= FREEZING_TEMPERATURE){
+                daysBelowFreezing++;
+            }
+        return daysBelowFreezing;
 	}
 
     /*
@@ -43,7 +50,12 @@ public class Exercise05_Weather {
 	hottestDay([55]) → 55
     */
     public int hottestDay(int[] dailyHighs) {
-        return 0;
+        int hottestTemperature = dailyHighs[0];
+        for (int i = 0; i < dailyHighs.length; i++)
+            if (dailyHighs[i] > hottestTemperature){
+                hottestTemperature = dailyHighs[i];
+            }
+        return hottestTemperature;
     }
 
     /*
@@ -61,6 +73,13 @@ public class Exercise05_Weather {
 	fixTemperatures([]) → []
      */
     public int[] fixTemperatures(int[] temperatures) {
-        return new int[] {};
+        int[] correctedTemperatures = new int[temperatures.length];
+        for (int i = 0; i < temperatures.length; i +=2){
+            correctedTemperatures[i] = (temperatures[i] + 2);
+        }
+        for (int i = 1; i < temperatures.length; i +=2){
+            correctedTemperatures[i] = temperatures[i];
+        }
+        return correctedTemperatures;
     }
 }
