@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Spliterator;
+
 public class Exercise01_StoreOrders {
 
     /*
@@ -43,7 +45,8 @@ public class Exercise01_StoreOrders {
 	 createOrder() → [10, 40, 31, 41]
      */
     public int[] createOrder() {
-        return new int[] {};
+        int[] newOrder = new int[] {SMALL_CHEESE, CALZONE, LARGE_PEPPERONI, SPAGHETTI_PIE};
+        return newOrder;
     }
 
     /*
@@ -57,8 +60,15 @@ public class Exercise01_StoreOrders {
     getCalzoneSales([30, 31, 10]) → 0
     getCalzoneSales([]) → 0
      */
+
     public int getCalzoneSales(int[] orders) {
-        return 0;
+        int count = 0;
+        for (int i = 0; i < orders.length; i++){
+            if (orders[i] == CALZONE){
+               count++;
+            }
+        }
+        return count;
     }
 
     /*
@@ -75,7 +85,24 @@ public class Exercise01_StoreOrders {
     getCheesePizzaRevenue([10, 11, 20]) → 19
     getCheesePizzaRevenue([11, 21]) → 0
      */
-    public int getCheesePizzaRevenue(int[] orders) {
-        return 0;
+    final int SMALL_CHEESE_PIZZA_COST = 8;
+    final int MEDIUM_CHEESE_PIZZA_COST = 11;
+    final int LARGE_CHEESE_PIZZA_COST = 14;
+
+    public int getCheesePizzaRevenue(int[] orders){
+        int cheesePizzaRevenue = 0;
+        for (int i = 0; i < orders.length; i++){
+            if (orders[i] == SMALL_CHEESE){
+                cheesePizzaRevenue += SMALL_CHEESE_PIZZA_COST;
+            }
+            else if (orders[i] == MEDIUM_CHEESE){
+                cheesePizzaRevenue += MEDIUM_CHEESE_PIZZA_COST;
+            }
+            else if (orders[i] == LARGE_CHEESE){
+                cheesePizzaRevenue += LARGE_CHEESE_PIZZA_COST;
+            }
+        }
+        return cheesePizzaRevenue;
+
     }
 }
