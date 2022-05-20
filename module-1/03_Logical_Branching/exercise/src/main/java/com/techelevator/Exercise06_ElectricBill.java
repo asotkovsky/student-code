@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import com.sun.source.tree.ReturnTree;
+
 public class Exercise06_ElectricBill {
 
     /*
@@ -14,6 +16,7 @@ public class Exercise06_ElectricBill {
     private final double EXCESS_RATE = 0.25;
     private final double EXCESS_UNITS_LIMIT = 100.0;
     private final double DISCOUNT_FACTOR = 0.95;
+    private final double RETURN_RATE = 0.20;
 
     /*
     Implement the logic to calculate what a customer owes for the units they've used.
@@ -23,12 +26,34 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(63.7) ➔ 12.74
     calculateElectricBill(110) ➔ 22.5
      */
-    public double calculateElectricBill(double unitsUsed) {
-        if (unitsUsed <= EXCESS_UNITS_LIMIT){
-            return unitsUsed * BASE_RATE;
-        }
-        return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
+    public double calculateBase(double unitsUsed){
+        return unitsUsed * BASE_RATE;
     }
+
+    public double calculateExcess(double unitsUsed){
+        return calculateBase(EXCESS_UNITS_LIMIT) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
+    }
+
+    public double calculateElectricBill(double unitsUsed){
+
+    if(unitsUsed <= EXCESS_UNITS_LIMIT) {
+        return calculateBase(unitsUsed);
+    }
+        return calculateExcess(unitsUsed);
+    }
+
+
+
+//    public double calculateElectricBill(double unitsUsed) {
+//        if (unitsUsed <= EXCESS_UNITS_LIMIT){
+//            return unitsUsed * BASE_RATE;
+//        }
+//        return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
+//    }
+
+
+
+
 
 
     /*
@@ -42,18 +67,25 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(50, true) ➔ 9.5
     calculateElectricBill(110, true) ➔ 21.375
      */
+//    public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
+//        if (hasRenewableEnergy == true){
+//            if (unitsUsed <= EXCESS_UNITS_LIMIT){
+//                return (unitsUsed * BASE_RATE) * DISCOUNT_FACTOR;
+//            }
+//            return ((EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE)) * DISCOUNT_FACTOR;
+//        }
+//        if (unitsUsed <= EXCESS_UNITS_LIMIT){
+//            return unitsUsed * BASE_RATE;
+//        }
+//        return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
+//        }
+
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
-        if (hasRenewableEnergy == true){
-            if (unitsUsed <= EXCESS_UNITS_LIMIT){
-                return (unitsUsed * BASE_RATE) * DISCOUNT_FACTOR;
-            }
-            return ((EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE)) * DISCOUNT_FACTOR;
+        if(hasRenewableEnergy){
+            return calculateElectricBill(unitsUsed) * DISCOUNT_FACTOR;
         }
-        if (unitsUsed <= EXCESS_UNITS_LIMIT){
-            return unitsUsed * BASE_RATE;
-        }
-        return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
-        }
+        return calculateElectricBill(unitsUsed);
+    }
 
 
     /*
@@ -76,20 +108,48 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 20) ➔ 17.1
     calculateElectricBill(110, 120) ➔ -2.0
      */
-    public double calculateElectricBill(double unitsUsed, double unitsReturned) {
-            if (unitsUsed < unitsReturned) {
-                return (unitsUsed - unitsReturned) * BASE_RATE;
-            }
-            else if (unitsReturned > 0){
-                if ((unitsUsed - unitsReturned) <= EXCESS_UNITS_LIMIT){
-                    return ((unitsUsed - unitsReturned) * BASE_RATE) * DISCOUNT_FACTOR;
-                }
-                return ((EXCESS_UNITS_LIMIT * BASE_RATE) + (((unitsUsed - unitsReturned) - EXCESS_UNITS_LIMIT) * EXCESS_RATE)) * DISCOUNT_FACTOR;
-            }
-            else if (unitsUsed <= EXCESS_UNITS_LIMIT){
-                return unitsUsed * BASE_RATE;
-            }
-            return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
-        }
+
+    public double calculateUsageCredit(double returnedUnits){
+        return returnedUnits * RETURN_RATE;
     }
+
+    public double calculateElectricBill(double unitsUsed, double unitsReturned) {
+        if(unitsReturned == 0){
+                return calculateElectricBill(unitsUsed);
+            }
+        else if(unitsUsed >= unitsReturned){
+            return calculateElectricBill((unitsUsed - unitsReturned), true);
+        }
+        else{
+            return calculateUsageCredit(unitsUsed-unitsReturned);
+        }
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+//    public double calculateElectricBill(double unitsUsed, double unitsReturned) {
+//            if (unitsUsed < unitsReturned) {
+//                return (unitsUsed - unitsReturned) * BASE_RATE;
+//            }
+//            else if (unitsReturned > 0){
+//                if ((unitsUsed - unitsReturned) <= EXCESS_UNITS_LIMIT){
+//                    return ((unitsUsed - unitsReturned) * BASE_RATE) * DISCOUNT_FACTOR;
+//                }
+//                return ((EXCESS_UNITS_LIMIT * BASE_RATE) + (((unitsUsed - unitsReturned) - EXCESS_UNITS_LIMIT) * EXCESS_RATE)) * DISCOUNT_FACTOR;
+//            }
+//            else if (unitsUsed <= EXCESS_UNITS_LIMIT){
+//                return unitsUsed * BASE_RATE;
+//            }
+//            return (EXCESS_UNITS_LIMIT * BASE_RATE) + ((unitsUsed - EXCESS_UNITS_LIMIT) * EXCESS_RATE);
+//        }
+//    }
 
