@@ -38,7 +38,7 @@ public class Fibonacci {
 			num1 = num2;
 			num2 = num3;
 
-			while (num1 < intNumber) {
+			while (num1 <= intNumber) {
 				System.out.print(", ");
 				break;
 			}
