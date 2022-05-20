@@ -42,15 +42,38 @@ class DiscountCalculator {
 
        double[] dblPricesArray = new double[pricesArray.length];
 
-        System.out.println("Discounted price is: ");
+        System.out.println("Discounted price for valid prices : ");
 
        for(int i = 0; i < pricesArray.length; i++){
 
            dblPricesArray[i] = Double.parseDouble(pricesArray[i]);
 
-           double newPrice = dblPricesArray[i] * (1 - discount);
 
-           System.out.print(newPrice + " ");
+
+           String valueCheck = "";
+
+
+           //substring() returns a string that is starts at a specified index
+
+           if(pricesArray[i].length() > 2){
+               valueCheck = (pricesArray[i].substring(pricesArray.length));
+           }
+
+           //checking to see if the last part of the above string is equal to .98
+
+            if(valueCheck.equals(".98")){
+                //because of java rounding doubles, I separated formatting from printing the double
+                System.out.printf("%10s", " ");
+                System.out.print(dblPricesArray[i]);
+            } else {
+                //if the valueCheck string doesn't equal .98, apply the discount
+
+                double newPrice = dblPricesArray[i] * (1 - discount);
+
+                System.out.printf("%10.2f", newPrice);
+            }
+
+
 
        }
 
