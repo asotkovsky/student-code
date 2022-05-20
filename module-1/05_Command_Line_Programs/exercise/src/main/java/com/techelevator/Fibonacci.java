@@ -33,10 +33,16 @@ public class Fibonacci {
 
 		while (num1 <= intNumber){
 
-			System.out.print(num1 + " ");
+			System.out.print(num1);
 			int num3 = num1 + num2;
 			num1 = num2;
 			num2 = num3;
+
+			while (num1 < intNumber) {
+				System.out.print(", ");
+				break;
+			}
+
 		}
 
 		System.out.println("\n\nThank you for using our tool! \u263A ");
