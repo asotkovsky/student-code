@@ -72,7 +72,7 @@ public class KilometerConverter {
             // Determine if value is referring to km or miles
 
             char distanceValueType;
-            if ((inputDistanceValueType == "K") || (inputDistanceValueType == "M") || (inputDistanceValueType.contains("km")) || (inputDistanceValueType.contains("kilo")) || (inputDistanceValueType == "KM")) {
+            if ((inputDistanceValueType.equalsIgnoreCase("k")) || (inputDistanceValueType.contains("km")) || (inputDistanceValueType.contains("kilo")) || (inputDistanceValueType == "KM")) {
                 distanceValueType = 'K';
 
                 for (int n = 0; n < doubleDistanceStartArray.length; n++) {
@@ -85,7 +85,7 @@ public class KilometerConverter {
                     }
                 }
 
-            } else if ((inputDistanceValueType == "M") || (inputDistanceValueType == "m") || (inputDistanceValueType.contains("mi")) || (inputDistanceValueType.contains("mile")) || (inputDistanceValueType == "MI")) {
+            } else if ((inputDistanceValueType.equalsIgnoreCase("M"))|| (inputDistanceValueType.contains("mi")) || (inputDistanceValueType.contains("mile")) || (inputDistanceValueType == "MI")) {
                 distanceValueType = 'M';
 
 
