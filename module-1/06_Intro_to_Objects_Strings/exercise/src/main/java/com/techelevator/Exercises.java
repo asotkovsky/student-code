@@ -429,10 +429,14 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		String shortenedString = (0,str.length())
-		str.replace("x","")
+		String shortenedString = "";
+		if (str.length() > 1) {
+			shortenedString = str.substring(1, str.length() - 1).replace("x", "");
+			String endOfIndex = str.substring(str.length() - 1);
+			String startOfIndex = str.substring(0, 1);
+			return str.substring(0, 1) + shortenedString + str.substring(str.length() - 1);
 		}
-		return null;
+		return str;
 	}
 
 	/*
@@ -442,7 +446,15 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String newString = "";
+		for (int i = 0; i < str.length(); i += 4) {
+			if ((i + 2) <= str.length()) {
+				newString += str.substring(i, i + 2);
+			} else {
+				newString += str.substring(i, i + 1);
+			}
+		}
+		return newString;
 	}
 
 	/*
@@ -453,7 +465,8 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		String modifiedStr = str.replace("yak","");
+		return modifiedStr;
 	}
 
 }
