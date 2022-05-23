@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Locale;
+
 public class Lecture {
 
 	public static void main(String[] args) {
@@ -15,13 +17,42 @@ public class Lecture {
 
 		/* create an new instance of String using a literal */
 
-		
+		String greeting = "Hello";
+		System.out.println(greeting);
+		String uppercaseGreeting = greeting.toUpperCase();
+		System.out.println(uppercaseGreeting);
+		System.out.println(greeting);
+
 		System.out.println();
 		System.out.println("******************************");
 		System.out.println("****** MEMBER METHODS ******");
 		System.out.println("******************************");
 		System.out.println();
 
+		// play with charAT
+
+		String name = "Tech Elevator";
+		System.out.println(name);
+		char first = name.charAt(3);
+		System.out.println(first);
+
+		// contains() - returns true or false
+		boolean nameContainsTor = name.contains("tor");
+		System.out.println(nameContainsTor);
+		boolean nameContainsNumnum = name.contains("Numnum");
+		System.out.println(nameContainsNumnum);
+
+		boolean chainedUppercaseCall = name.toUpperCase().contains("TOR");
+		System.out.println(chainedUppercaseCall);
+
+		boolean nameEndsWith = name.endsWith("or");
+		System.out.println(nameEndsWith);
+
+		String substringOfName = name.substring(0,7);
+		System.out.println(substringOfName);
+
+		String lastFourOfName = name.substring(name.length()-4);
+		System.out.println(lastFourOfName);
 
 		/* Other commonly used methods:
 		 *
@@ -44,7 +75,9 @@ public class Lecture {
 
         char[] helloArray = new char[] { 'H', 'e', 'l', 'l', 'o' };
         String hello1 = new String(helloArray);
+		System.out.println(hello1);
         String hello2 = new String(helloArray);
+		System.out.println(hello2);
 
 		/* Double equals will compare to see if the two variables, hello1 and
 		 * hello2 point to the same object in memory. Are they the same object? */
