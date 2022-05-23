@@ -11,46 +11,58 @@ public class DecimalToBinary {
 
 		System.out.println("Welcome to the decimal to binary conversion tool!\n");
 
+		// Allow user to run program again as long as runAgain is true
 		boolean runAgain = true;
+		while (runAgain) {
 
+			// Prompt user to enter start value(s) and create array of split strings based in decimals
 
-		// Prompt user to enter start value(s) and create array of split strings based in decimals
+			System.out.println("Please enter in a series of decimal values:");
+			Scanner input = new Scanner(System.in);
+			String inputDecimals = input.nextLine();
+			String[] decimalStrings = inputDecimals.split("[\\s,]+");
 
-		System.out.println("Please enter in a series of decimal values:");
-		Scanner input = new Scanner(System.in);
-		String inputDecimals = input.nextLine();
-		String[] decimalStrings = inputDecimals.split("[\\s,]+");
+			// Parse string values into long
+			// and store in a new array
 
-		// Parse string values into long
-		// and store in a new array
+			int[] decimals = new int[decimalStrings.length];
 
-		int[] decimals = new int[decimalStrings.length];
+			for (int i = 0; i < decimalStrings.length; i++) {
+				decimals[i] = Integer.parseInt(decimalStrings[i]);
+				int decimalValue = decimals[i];
+				System.out.print(decimalValue + " in binary is ");
+				decimalToBinary(decimalValue);
+				System.out.println(" ");
+			}
 
-		for (int i = 0; i < decimalStrings.length; i++) {
-			decimals[i] = Integer.parseInt(decimalStrings[i]);
-			int decimalValue = decimals[i];
-			decimalToBinary(decimalValue);
-			System.out.print(" ");
-		}
-
-	}
-	public static void decimalToBinary(int decimalValue){
-
-		int binaryNumber[] = new int[1000];
-		int index = 0;
-		for (int j= 0; decimalValue >0; j++){
-
-			binaryNumber[index ++] = decimalValue % 2 ;
-			decimalValue = decimalValue / 2;
-		}
-		for(int i = index -1;i >= 0;i--){
-			System.out.print(binaryNumber[i]);
+			System.out.println("\nWould you like to run the program again? Y/N");
+			String inputRunAgain = input.nextLine();
+			if (inputRunAgain.equalsIgnoreCase("n")) {
+				runAgain = false;
+				System.out.println("\nThank you for using our converter! \u2661");
+			}
 
 		}
 	}
-}
+		public static void decimalToBinary ( int decimalValue){
+
+			int binaryNumber[] = new int[1000];
+			int index = 0;
+			for (int j = 0; decimalValue > 0; j++) {
+
+				binaryNumber[index++] = decimalValue % 2;
+				decimalValue = decimalValue / 2;
+			}
+			for (int i = index - 1; i >= 0; i--) {
+				System.out.print(binaryNumber[i]);
+
+			}
+		}
+	}
 
 
+
+// Ignore all of this hot garbage
 
 //			for (int j = 0; j <= decimals.length; j++) {
 //				int temp = decimals[i];
