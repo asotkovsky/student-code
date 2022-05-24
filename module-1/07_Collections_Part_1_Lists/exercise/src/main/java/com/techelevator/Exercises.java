@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Exercises {
@@ -16,7 +17,8 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String> listOfStrings = Arrays.asList(stringArray);
+		return listOfStrings;
 	}
 
 	/*
@@ -26,7 +28,8 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] listAsArray = stringList.toArray(new String[stringList.size()]);
+		return listAsArray;
 	}
 
 	/*
@@ -62,7 +65,18 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+
+		// Initialize an empty Array List of Double
+		List<Double> listOfDoubles = new ArrayList<Double>();
+
+		// Look at every value on the array & list divide it by two
+		for (int integer : intArray) {
+			Double d = new Double(integer);
+			d /= 2;
+			listOfDoubles.add(d);
+		}
+		// Store the output of those caluclations to the Array List
+		return listOfDoubles;
 	}
 
 	/*
@@ -72,7 +86,13 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		int largestInteger = 0;
+		for (int integer : integerList) {
+			if (integer > largestInteger) {
+				largestInteger = integer;
+			}
+		}
+		return largestInteger;
 	}
 
 	/*
@@ -82,7 +102,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> oddOnlyList = new ArrayList<Integer>();
+		for (int integer : integerArray) {
+			if (integer % 2 == 1) {
+				oddOnlyList.add(integer);
+			}
+		}
+		return oddOnlyList;
 	}
 
 	/*
@@ -95,7 +121,7 @@ public class Exercises {
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
 		boolean foundIt = false;
 		int count = 0;
-		
+
 		// 1. Look at each #
 		for (int number : integerList) {
 			// 2. Check to see if the number is the given number
@@ -124,7 +150,25 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+
+		//Create new blank list to store string values
+		List<String> fizzBuzzList = new ArrayList<String>();
+
+		// Check the current value of each index in the Array and add the appropriate to the string value to the fizzbuzz list
+		for (int integer : integerArray) {
+			if ((integer % 3 == 0) && (integer % 5 == 0)) {
+				fizzBuzzList.add("FizzBuzz");
+			} else if (integer % 3 == 0) {
+				fizzBuzzList.add("Fizz");
+			} else if (integer % 5 == 0) {
+				fizzBuzzList.add("Buzz");
+			} else {
+				String intAsString = String.valueOf(integer);
+				fizzBuzzList.add(intAsString);
+			}
+
+		}
+		return fizzBuzzList;
 	}
 
 	/*
@@ -135,7 +179,24 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
-	}
+		// Create a new Integer list to put the new interwoven values into
+		List<Integer> interLeaveList = new ArrayList<Integer>();
+		int longestListSize;
+		if (listOne.size() > listTwo.size()) {
+			longestListSize = listOne.size();
+		} else {
+			longestListSize = listTwo.size();
+		}
+		for (int i = 0; i < longestListSize; i++) {
+			if ((listOne.size()) > i) {
+				interLeaveList.add(listOne.get(i));
+			}
+			if ((listTwo.size()) > i) {
+				interLeaveList.add(listTwo.get(i));
+			}
+		}
+		return interLeaveList;
 
+	}
 }
+

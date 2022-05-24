@@ -11,6 +11,7 @@ public class LectureTest {
 
     @Test
     public void testReturnArray() {
+        int[] newArray = exercises.returnArray();
         assertArrayEquals(new int[] { 80, 8080, 443 }, exercises.returnArray());
     }
 
