@@ -37,8 +37,23 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> listWithout4LetterWords = new ArrayList<String>();
+
+		// 1 Look at each word in the list
+
+		for (String word : stringArray) {
+
+			// 2 For each word determine how many letters
+
+			if (word.length() != 4) {
+
+				// 3 put the word in the new list if it is not 4 letters
+				listWithout4LetterWords.add(word);
+			}
+		}
+		return listWithout4LetterWords;
 	}
+
 
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
@@ -78,7 +93,22 @@ public class Exercises {
 	 foundIntTwice( [9, 9, 44, 2, 88, 9], 9) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		boolean foundIt = false;
+		int count = 0;
+		
+		// 1. Look at each #
+		for (int number : integerList) {
+			// 2. Check to see if the number is the given number
+			if (number == intToFind) {
+//				3. If it is the given number add it to the count
+				count += 1;
+			}
+			// 3. When done checking all numbers, if the count is 2 or more then return TRUE else return FALSE
+			if (count >= 2) {
+				foundIt = true;
+			}
+		}
+		return foundIt;
 	}
 
 	/*
