@@ -9,7 +9,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		return null;
+		name = "Hello " + name + "!";
+		return name;
 	}
 
 	/*
@@ -44,7 +45,9 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		String firstHalfOfOut = out.substring(0, 2);
+		String lastHalfOfOut = out.substring(2);
+		return firstHalfOfOut + word + lastHalfOfOut;
 	}
 
 	/*
