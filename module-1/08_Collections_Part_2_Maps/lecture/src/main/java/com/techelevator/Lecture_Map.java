@@ -11,10 +11,31 @@ public class Lecture_Map {
 		System.out.println("####################");
 		System.out.println();
 
+		Map<String, String> animalNoises = new HashMap<String, String>();
 
+		animalNoises.put("Cow", "Moo");
+		animalNoises.put("Chicken", "Cluck");
+		animalNoises.put("Dog", "Bark");
+		animalNoises.put("Lion", "Roar");
+		animalNoises.put("Duck", "Roar");
 
+		animalNoises.put("Duck","Quack");
 
+// Retrieve items from a map using get (key)
 
+		String cowNoise = animalNoises.get("Cow");
+		System.out.println("A cow says " + cowNoise);
+
+// If the key does not exist then get() will return null
+
+		System.out.println("The wolf says " + animalNoises.get("Wolf"));
+
+// remove(key) removes the key/value pair from the map and returns the value
+
+		String lionNoise = animalNoises.remove("Lion");
+
+		boolean doesCatExistsAsAKeyInTheMap = animalNoises.containsKey("Cat");
+		boolean doesMeowExistsAsAValueInTheMap = animalNoises.containsValue("Meow");
 
 
 
@@ -113,6 +134,18 @@ public class Lecture_Map {
 		 */
 		String[] names = {"Rachelle", "John", "Rachelle", "Steve", "Dan", "Matt", "John", "Matt", "Rachelle", "Steve", "John", "Rachelle", "Rachelle" };
 
+		Map<String, Integer> nameCounts = new HashMap<>();
+
+		for(String name : names){
+			if (!nameCounts.containsKey(name)) {
+				nameCounts.put(name, 1);
+			}
+			else {
+				int count = nameCounts.get(name) + 1;
+				nameCounts.put(name, count);
+			}
+
+		}
 
 		/*
 			Keep track of items you want to purchase at the store
