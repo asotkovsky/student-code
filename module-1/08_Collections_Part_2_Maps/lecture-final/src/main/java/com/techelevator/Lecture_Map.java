@@ -23,7 +23,14 @@ public class Lecture_Map {
 		animalNoises.put("Lion", "Roar");
 		animalNoises.put("Duck", "Roar");
 
-
+		for(Entry<String,String> currentEntry : animalNoises.entrySet()){
+			System.out.print(currentEntry + " ");
+			System.out.print(currentEntry.getKey() + " ");
+			System.out.println(currentEntry.getValue());
+			if(animalNoises.containsKey(currentEntry.getKey())){
+				//do something
+			}
+		}
 		// If the key already exists the value is updated
 		animalNoises.put("Duck", "Quack");
 
