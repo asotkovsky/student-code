@@ -34,6 +34,16 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
+
+		if (animalName == null) {
+			return "unknown";
+		}
+
+		Map<String, String> herds = new HashMap<String, String>();
+
+		herds.put("RHINO", "Crash");
+		herds.put("GIRAFFE", "Tower");
+
 		return null;
 	}
 
