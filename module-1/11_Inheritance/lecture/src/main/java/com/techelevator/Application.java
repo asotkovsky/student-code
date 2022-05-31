@@ -16,6 +16,5 @@ public class Application {
         //....
         //....
         // This might go on until the auction runs out of time or hits a max # of bids
-
     }
 }

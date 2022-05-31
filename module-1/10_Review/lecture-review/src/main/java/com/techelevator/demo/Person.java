@@ -31,12 +31,12 @@ public class Person {
 //        return this.age;
 //    }
 
-//    @Override
-//    public boolean equals(Object obj){
-//        //because obj is accessing Object, we need to convert obj to Person
-//        Person other = (Person) obj; //downcasting - more on this next week
-//        return this.name.equals(other.name);
-//    }
+    @Override
+    public boolean equals(Object obj){
+        //because obj is accessing Object, we need to convert obj to Person
+        Person other = (Person) obj; //downcasting - more on this next week
+        return this.name.equals(other.name);
+    }
 
 //    @Override
 //    public String toString(){
