@@ -1,22 +1,24 @@
 package com.techelevator.challenge;
 
+import java.math.BigDecimal;
+
 public class BankAccount {
 
     // Defining member variables
 
     private String accountHolderName = "";
     private String accountNumber = "";
-    private int balance;
+    private BigDecimal balance;
 
     // Constructors
 
     public BankAccount(String accountHolderName, String accountNumber){
         this. accountHolderName = accountHolderName;
         this.accountNumber = accountNumber;
-        this.balance = balance;
+        this.balance.equals(balance);
     }
 
-    public BankAccount(String accountHolderName, String accountNumber, int balance){
+    public BankAccount(String accountHolderName, String accountNumber, BigDecimal balance){
         this.accountHolderName = accountHolderName;
         this.accountNumber = accountNumber;
         this.balance = balance;
@@ -24,14 +26,18 @@ public class BankAccount {
 
     // Methods
 
-    public int deposit(int amountToDeposit){
-        this.balance += amountToDeposit;
-        return this.balance;
+    public BigDecimal deposit(BigDecimal amountToDeposit){
+
+        BigDecimal newBalance = new BigDecimal("");
+        newBalance = (balance.add(amountToDeposit));
+
+        return newBalance;
     }
 
-    public int withdraw(int amountToWithdraw){
-        this.balance -= amountToWithdraw;
-        return this.balance;
+    public BigDecimal withdraw(BigDecimal amountToWithdraw){
+
+        balance =  balance.subtract(amountToWithdraw);
+        return balance;
     }
 
     // Getters
@@ -45,8 +51,8 @@ public class BankAccount {
         return accountNumber;
     }
 
-    public int getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
-    
+
 }
