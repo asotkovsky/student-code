@@ -2,8 +2,6 @@ package com.techelevator;
 
 public class CheckingAccount extends BankAccount {
 
-
-
     // Constructor
 
     public CheckingAccount(String accountHolderName, String accountNumber){
@@ -15,12 +13,15 @@ public class CheckingAccount extends BankAccount {
     }
 
 
-    @Override
-public int withdraw(int amountToWithdraw){
-
-        if ((super.getBalance() < 0) && ((super.getBalance() - amountToWithdraw) > -100)){
-            super.withdraw(amountToWithdraw);
-            super.getBalance() = super.getBalance() - 10;
+    public int withdraw(int amountToWithdraw){
+        if ((super.getBalance() - amountToWithdraw <= -100)){
+            return super.getBalance();
+        }
+        else if ((super.getBalance() - amountToWithdraw < 0) && ((super.getBalance() - amountToWithdraw) > -100)){
+            return super.withdraw(amountToWithdraw + 10);
+        }
+        else {
+            return super.withdraw(amountToWithdraw);
         }
     }
 
