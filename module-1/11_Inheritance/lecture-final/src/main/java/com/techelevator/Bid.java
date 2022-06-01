@@ -17,4 +17,17 @@ public class Bid {
 	public int getBidAmount() {
 		return bidAmount;
 	}
+
+	@Override
+	public String toString() {
+		return "Bidder: " + bidder + "  Bid Amount: " + bidAmount;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Bid otherBid = (Bid) obj;
+		return this.bidder.equals(otherBid.getBidder()) && this.bidAmount == otherBid.getBidAmount();
+
+	}
+
 }
