@@ -7,7 +7,7 @@ import java.util.List;
 public class OldMacdonald {
 	public static void main(String[] args) {
 
-		Singable[] singers = new Singable[] { new Cow(), new Chicken(), new Sheep(), new Tractor(), new Cat(100), new TabbyCat(), new Cat(50) };
+		Singable[] singers = new Singable[] { new Cow(), new Chicken(), new Sheep(), new Tractor(), new Cat(100), new Cat(50) };
 		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken(), new Sheep() };
 
 		for (Singable animal : singers) {
