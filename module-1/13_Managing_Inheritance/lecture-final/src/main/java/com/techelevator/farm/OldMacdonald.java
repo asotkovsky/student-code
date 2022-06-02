@@ -7,7 +7,17 @@ import java.util.List;
 public class OldMacdonald {
 	public static void main(String[] args) {
 
-		Singable[] singers = new Singable[] { new Cow(), new Chicken(), new Sheep(), new Tractor() };
+		Cow singingCow = new Cow();
+		singingCow.sleep();
+
+		Cat singingCat = new Cat(100);
+		singingCat.sleep();
+
+		// FarmAnimal can be used as a superclass, but not instantiated directly because it is abstract
+		//FarmAnimal farmAnimal = new FarmAnimal("Pig", "oink!", 0);
+
+		Singable[] singers = new Singable[] { singingCow, new Chicken(),
+				new Sheep(), new Tractor(), singingCat };
 		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken(), new Sheep() };
 
 		for (Singable animal : singers) {
@@ -44,6 +54,8 @@ public class OldMacdonald {
 		}
 
 		MusicBox asMusicBox = new MusicBox();
+		asMusicBox.setId(1);
+
 		asMusicBox.getName();
 		asMusicBox.getSound();
 		asMusicBox.getPrice();
@@ -64,6 +76,21 @@ public class OldMacdonald {
 		backToMusicBox.getPrice();
 		backToMusicBox.wind();
 		backToMusicBox.play();
+
+
+
+		MusicBox musicBoxTwo = new MusicBox();
+		musicBoxTwo.setId(1);
+
+		if (asMusicBox.equals(asSellable)) {
+			System.out.println("Original Musicbox is the same objects asSellable");
+		}
+
+		if (asMusicBox.equals(musicBoxTwo)) {
+			System.out.println("Musicbox is equal to musicbox2 because they have the same id");
+		}
+
+		asMusicBox.equals( new Cow() );
 
 	}
 }
