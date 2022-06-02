@@ -7,7 +7,7 @@ import java.util.List;
 public class OldMacdonald {
 	public static void main(String[] args) {
 
-		Singable[] singers = new Singable[] { new Cow(), new Chicken(), new Sheep(), new Tractor() };
+		Singable[] singers = new Singable[] { new Cow(), new Chicken(), new Sheep(), new Tractor(), new Cat(100), new TabbyCat(), new Cat(50) };
 		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken(), new Sheep() };
 
 		for (Singable animal : singers) {
@@ -64,6 +64,17 @@ public class OldMacdonald {
 		backToMusicBox.getPrice();
 		backToMusicBox.wind();
 		backToMusicBox.play();
+
+		MusicBox musicBoxTwo = new MusicBox();
+		musicBoxTwo.setId(1);
+
+		if (asMusicBox.equals(asSellable)){
+			System.out.println("Original Musicbox is the same objects asSellable.");
+		}
+
+		if (asMusicBox.equals(musicBoxTwo)){
+			System.out.println("Musicbox is equal to musicbox 2 because they have the same id");
+		}
 
 	}
 }
