@@ -62,7 +62,7 @@ public class LectureTest {
 
 
     /*
-        See the AssertingDoulbesApp for details about the double delta
+        See the AssertingDoublesApp for details about the double delta
      */
 
     /*

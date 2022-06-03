@@ -9,9 +9,9 @@ public class SleepIn {
     sleepIn(true, false) → false
     sleepIn(false, true) → true
     */
-    public boolean sleepIn(boolean weekday, boolean vacation) {
-      boolean sleepIn = !weekday || vacation;
-      return sleepIn;
+    public boolean willSleepIn(boolean weekday, boolean vacation) {
+      boolean willSleepIn = !weekday || vacation;
+      return willSleepIn;
     }
 
 }

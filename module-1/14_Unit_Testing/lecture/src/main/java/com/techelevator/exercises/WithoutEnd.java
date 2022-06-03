@@ -10,9 +10,15 @@ public class WithoutEnd {
      withoutEnd2("ab") → ""
      */
     public String withoutEnd(String str) {
-        if (str.length() <= 2) {
+        if (str == null) {
             return "";
         }
-        return str.substring(1, str.length() - 1);
+        else if (str.length() <= 2) {
+                return "";
+            }
+            else {
+                return str.substring(1, str.length() - 1);
+            }
+        }
     }
-}
+
