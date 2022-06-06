@@ -12,13 +12,11 @@ public class WordSearch {
 		boolean searchNewFile = true;
 
 		while (searchNewFile == true) {
-		System.out.println("Please enter the name of the file you would like to search: ");
-		Scanner input = new Scanner(System.in);
-		String filePath = input.nextLine();
-		File file = new File(filePath);
-		boolean promptUserForNewFile = false;
-
-
+			System.out.println("Please enter the name of the file you would like to search: ");
+			Scanner input = new Scanner(System.in);
+			String filePath = input.nextLine();
+			File file = new File(filePath);
+			boolean promptUserForNewFile = false;
 
 			boolean searchFileAgain = true;
 
@@ -95,7 +93,7 @@ public class WordSearch {
 							if ((checkNewFile.equalsIgnoreCase("Y")) || (checkNewFile.equalsIgnoreCase("Yes"))) {
 								promptUserForNewFile = true;
 								break;
-						}
+							}
 						}
 
 
