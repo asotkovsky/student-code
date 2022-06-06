@@ -26,10 +26,8 @@ public class DateFashionTest {
         // Arrange
         // Act
         int you2ThemExcellent = tableTest.getATable(2,10);
-        int youExcellentThem2 = tableTest.getATable(10,2);
         // Assert
         Assert.assertEquals(0, you2ThemExcellent);
-        Assert.assertEquals(0, youExcellentThem2);
     }
 
     @Test
@@ -46,9 +44,7 @@ public class DateFashionTest {
         // Arrange
         // Act
         int youAbove2ThemExcellent = tableTest.getATable(3,10);
-        int youExcellentThemAbove2 = tableTest.getATable(10,3);
         Assert.assertEquals(2, youAbove2ThemExcellent);
-        Assert.assertEquals(2, youExcellentThemAbove2);
     }
 
     @Test
@@ -56,10 +52,8 @@ public class DateFashionTest {
         // Arrange
         // Act
         int you2ThemZero = tableTest.getATable(2,0);
-        int youZeroThem2 = tableTest.getATable(0,2);
         // Assert
         Assert.assertEquals(0, you2ThemZero);
-        Assert.assertEquals(0, youZeroThem2);
     }
 
     @Test
