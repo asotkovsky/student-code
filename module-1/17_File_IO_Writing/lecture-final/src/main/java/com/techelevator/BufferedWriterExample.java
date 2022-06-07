@@ -1,12 +1,25 @@
 package com.techelevator;
 
+import java.io.*;
+
 public class BufferedWriterExample {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         /*
          * Create a file and PrintWriter
          */
+        File file = new File("fileWrittenWithBuffering.txt");
+
+        try (PrintWriter printWriter = new PrintWriter(file);
+             BufferedWriter bufferedWriter = new BufferedWriter(printWriter)) {
+
+            bufferedWriter.write("This was written with a buffered writer again");
+            bufferedWriter.newLine();
+
+        } catch (IOException e) {
+            System.out.println("Unable to write to file: " + e.getMessage());
+        }
 
 
         /*
