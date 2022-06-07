@@ -29,12 +29,12 @@ public class HotelReservationTest {
       testTarget = new HotelReservation();
   }
 
-//  @Test
-//  public void estimatedTotal3Nights() {
-//      double actualEstimate = testTarget.getEstimatedTotal(3);
-//      Assert.assertEquals(179.77, actualEstimate, .0009);
-//
-//  }
+  @Test
+  public void estimatedTotal3Nights() {
+      double actualEstimate = testTarget.getEstimatedTotal(3);
+      Assert.assertEquals(179.77, actualEstimate, .0009);
+
+  }
 
 
 

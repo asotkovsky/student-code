@@ -30,7 +30,7 @@ public class HotelReservation {
         this.actualTotal = this.estimatedTotal;
 
         if (requiresCleaning && usedMiniBar){
-            this.actualTotal += ((cleaningFee * 2) + miniBarFee)
+            this.actualTotal += ((cleaningFee * 2) + miniBarFee);
         }
 
         if (requiresCleaning){
