@@ -107,7 +107,7 @@ public class LectureTest {
     @Test
     public void assertString() {
         String result = lecture.firstTwo("Hello");
-        Assert.assertEquals("He", result);
+        Assert.assertEquals("This message will be shown when it fails","He", result);
     }
 
     /*

@@ -33,7 +33,8 @@ public class ExceptionsLecture {
 			System.out.println("Hey ya'll, watch this!");
 			doSomethingDangerous();  // throws an ArrayIndexOutOfBoundsException
 			System.out.println("See, I told you nothing would go wrong!");
-		} catch(ArrayIndexOutOfBoundsException e) {  
+
+		} catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println("Call the Darwin Awards...");
 		}
 		
@@ -80,9 +81,15 @@ public class ExceptionsLecture {
 		System.out.println();
 		
 		/* if we try to call the withdraw method outside of a try/catch, it will cause a compiler error */
-		//withdraw(currentBalance, amountToWithdraw);
-		
-				
+
+
+		try {
+			withdraw(currentBalance, amountToWithdraw);
+		} catch (OverdraftException e) {
+			e.printStackTrace();
+		}
+
+
 		/* every Exception contains a "stacktrace" that can be extremely useful in debugging.
 		 * The stacktrace contains a record of where the Exception was thrown and all of the 
 		 * method calls that lead up to the Exception being thrown. */
