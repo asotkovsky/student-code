@@ -1,0 +1,1 @@
+This is the first line of our new file. Written with a BufferedWriter.
