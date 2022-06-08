@@ -28,4 +28,17 @@ public class Menu {
         System.out.println();
     }
 
+    public String getSelectedSkuFromUser(){
+        System.out.print("Item to purchase >>>");
+        String skuToPurchase = userInput.nextLine();
+        return skuToPurchase;
+    }
+
+    public void showUserSelectItem(Item selectedItem){
+        System.out.println("You selected to purchase a " + selectedItem.getName() + " at: " + selectedItem.getTotalPrice());
+    }
+
+    public void displayError(String file_not_found) {
+        System.out.println(file_not_found);
+    }
 }
