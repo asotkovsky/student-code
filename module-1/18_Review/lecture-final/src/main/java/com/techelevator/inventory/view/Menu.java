@@ -41,4 +41,13 @@ public class Menu {
     public void displayError(String file_not_found) {
         System.out.println(file_not_found);
     }
+
+    public String getInputFromUser(String s) {
+        System.out.println(s);
+        return userInput.nextLine();
+    }
+
+    public void displayEndOfOrder(String resultOfOrderWriter) {
+        System.out.println(resultOfOrderWriter + " Thank you, good-bye!");
+    }
 }

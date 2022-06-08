@@ -4,14 +4,20 @@ import com.techelevator.inventory.Inventory;
 import com.techelevator.inventory.Item;
 import com.techelevator.inventory.reader.InventoryFileReader;
 import com.techelevator.inventory.view.Menu;
+import com.techelevator.inventory.writer.OrderWriter;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Application {
 
     private Menu menu;
+    Map<String, Item> inventory = null;
+    List<Item> order = new ArrayList<>();
     /*
         The Store
             Holds the Inventory
@@ -36,7 +42,6 @@ public class Application {
 
         menu.showWelcomeMenu();
 
-        Map<String, Item> inventory = null;
 
         try {
             inventory = inventoryBuilder.readInventory();
@@ -44,19 +49,38 @@ public class Application {
             menu.displayError("File not found");
         }
 
+        purchaseItems();
 
-        menu.showItemsForSale(inventory);
+        OrderWriter orderWriter = new OrderWriter();
+        String resultOfOrderWriter = "";
 
+        try {
+            resultOfOrderWriter = orderWriter.writeOrder(order);
+        } catch (IOException e) {
+            menu.displayError("Something went wrong writing this file: " + e.getMessage());
+        }
 
-        //Move this work to menu
-        String skuToPurchase = menu.getSelectedSkuFromUser();
+        menu.displayEndOfOrder(resultOfOrderWriter);
 
+    }
 
-        Item selectedItem = inventory.get(skuToPurchase);
+    private void purchaseItems(){
 
-        menu.showUserSelectItem(selectedItem);
+        while(true){
+            menu.showItemsForSale(inventory);
+            String skuToPurchase = menu.getSelectedSkuFromUser();
+            Item selectedItem = inventory.get(skuToPurchase.toUpperCase());
 
+            //add item to order list
+            order.add(selectedItem);
 
+            menu.showUserSelectItem(selectedItem);
+
+            String userResponse = menu.getInputFromUser("Do you wish to continue?(Y/N)");
+            if(userResponse.equalsIgnoreCase("N")){
+                break;
+            }
+        }
     }
     
 }
