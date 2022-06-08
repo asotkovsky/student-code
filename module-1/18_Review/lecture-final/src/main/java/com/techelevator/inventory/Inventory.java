@@ -7,6 +7,11 @@ import java.util.Map;
 
 public class Inventory {
 
+    /*
+    * sku | name | description | price | types
+    * */
+
+
     public Map<String, Item> getInventory() {
         Item cake = new Food("001", "Cake");
         cake.setDescription("A chocolate cake");

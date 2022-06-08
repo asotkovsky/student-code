@@ -12,6 +12,7 @@ public abstract class Item {
         this.sku = sku;
         this.name = name;
     }
+    public abstract double getTotalPrice();
 
     public double getPrice() {
         return price;
