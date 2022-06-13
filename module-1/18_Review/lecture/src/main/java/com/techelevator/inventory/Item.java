@@ -13,6 +13,8 @@ public abstract class Item {
         this.name = name;
     }
 
+    public abstract double getTotalPrice();
+
     public double getPrice() {
         return price;
     }
